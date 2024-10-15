@@ -1,5 +1,6 @@
 "use client"
 
+import React from 'react';
 import { IconDefinition } from "@fortawesome/free-regular-svg-icons"
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,12 +13,22 @@ type Props = {
     filled?: boolean;
     icon?: IconDefinition;
     onChange?: (newValue:string) => void;
+    onEnter?: () => void;
 
 }
 
-export const Input = ({ placeholder, password, icon, value, filled, onChange}: Props) => {
+export const Input = ({ placeholder, password, icon, value, filled, onChange, onEnter}: Props) => {
 
     const [showPassword, setShowPassword] = useState(false);
+
+    const handleKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
+
+        if (event.code.toLowerCase() === 'enter' && onEnter) {
+            onEnter();
+        }
+    }
+    
+    
 
     return(
 
@@ -36,6 +47,7 @@ export const Input = ({ placeholder, password, icon, value, filled, onChange}: P
                 placeholder={placeholder}
                 value={value}
                 onChange={e => onChange && onChange(e.target.value)}
+                onKeyUp={handleKeyUp}
             />
 
             {password &&
