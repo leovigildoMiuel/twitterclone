@@ -2,7 +2,7 @@
 type Props = {
     label: string
     onClick?: () => void;
-    size: 1 | 2 | 3;
+    size: 1 | 2 | 3 | 4;
 
 }
 export const Button = ({ label, onClick, size}: Props) => {
@@ -11,9 +11,10 @@ export const Button = ({ label, onClick, size}: Props) => {
        <div 
             onClick={onClick}
             className={`flex justify-center items-center cursor-pointer bg-white text-black font-bold rounded-3xl
-                ${size === 1 && 'h-10 text-lg'}
-                ${size === 2 && 'h-8 text-md'}
-                ${size === 3 && 'h6 text-xs'}
+                ${size === 1 && 'h-12 text-lg'}
+                ${size === 2 && 'h-10 text-md'}
+                ${size === 3 && 'h-8 text-xs'}
+                ${size === 4 && 'h-6 text-xs'}
                 `}
             >
             {label}

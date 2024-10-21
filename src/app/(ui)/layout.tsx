@@ -2,6 +2,7 @@ import { NavItem } from "@/components/nav/nav_item";
 import { NavLogout } from "@/components/nav/nav_logout";
 import { NavMyProfile } from "@/components/nav/nav_myprofile";
 import { Logo } from "@/components/ui/logo";
+import { ReacomendationArea } from "@/components/ui/recomendation-area";
 import { SearchInput } from "@/components/ui/search-input";
 import { TrendingArea } from "@/components/ui/trending-area";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
@@ -48,6 +49,7 @@ export default function Layout ({ children }: Props) {
             <aside className="hidden lg:flex flex-col gap-6 sticky top-0 h-fit w-96 px-8 py-6 border-l-2 border-gray-800">
                 <SearchInput hideOnSearch />
                 <TrendingArea />
+                <ReacomendationArea />
             </aside>
         </main>
     )
